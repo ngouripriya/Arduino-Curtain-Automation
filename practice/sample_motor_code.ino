@@ -3,6 +3,7 @@
 const int dirPin = 2;
 const int stepPin = 3;
 const int stepsPerRevolution = 200;
+//https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/
 
 void setup()
 {
