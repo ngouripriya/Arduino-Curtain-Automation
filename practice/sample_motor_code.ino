@@ -1,9 +1,11 @@
 // Define pin connections & motor's steps per revolution
+//sources: 
 //https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/#:~:text=Wiring%20an%20A4988%20Stepper%20Motor%20Driver%20to%20an%20Arduino,-Now%20that%20we&text=The%20connections%20are%20straightforward.,%2C%201A%2C%20and%201B%20pins.
+//https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/
 const int dirPin = 2;
 const int stepPin = 3;
 const int stepsPerRevolution = 200;
-//https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/
+
 
 void setup()
 {
