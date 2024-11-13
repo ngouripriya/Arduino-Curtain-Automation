@@ -1,3 +1,6 @@
+//source below
+//https://lastminuteengineers.com/rotary-encoder-arduino-tutorial/
+
 #define CLK 2
 #define DT 3
 #define SW 4
