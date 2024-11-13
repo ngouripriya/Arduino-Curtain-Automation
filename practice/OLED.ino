@@ -3,6 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+//code based on Adafruit library
 // OLED FeatherWing buttons map to different pins depending on board.
 // The I2C (Wire) bus may also be different.
 #if defined(ESP8266)
