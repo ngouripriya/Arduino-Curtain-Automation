@@ -7,8 +7,11 @@
 ### Hardware
 Connect the following devices to an Arduino Uno as described:
 Photoresistors:
+
 I2C OLED Display:
+
 A4988 & Nema 17 Stepper Motor: set current limit accordingly
+
 Rotary Encoder:
 
 Connect the motor to blinds.
