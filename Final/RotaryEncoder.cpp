@@ -5,7 +5,7 @@ int scrollModes =0;
 int counter = 0;
 int currentStateCLK;
 int lastStateCLK;
-String currentDir ="";
+////String currentDir ="";
 unsigned long lastButtonPress = 0;
 
 
@@ -44,13 +44,13 @@ int scroll(){
 		if (digitalRead(DT) != currentStateCLK) {
       if (scrollModes != 3){
 			  scrollModes ++;
-			  currentDir ="CCW";
+//			  currentDir ="CCW";
       }
 		} 
     else {
       if (scrollModes != 0){
 			  scrollModes --;
-			  currentDir ="CW";
+//			  currentDir ="CW";
       }
 		}
     delay(10);
@@ -67,5 +67,24 @@ int scroll(){
 
 
   return scrollModes;
+}
+
+int turn(){
+
+  currentStateCLK = digitalRead(CLK);
+
+  if (currentStateCLK != lastStateCLK){
+
+    if (digitalRead(DT) != currentStateCLK) {
+        counter ++;
+    } 
+    else {
+        counter --; 
+    }
+    delay(10);
+  }
+  lastStateCLK = currentStateCLK;
+
+    return counter;
 }
 
