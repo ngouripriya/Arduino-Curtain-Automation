@@ -4,5 +4,7 @@
 void modeAutomatic();
 void autoOpen();
 void autoClose();
+bool repeating(int i);
+void updatePast(int i);
 
 #endif
