@@ -10,6 +10,9 @@ void modeManual();
 void ManualOverride();
 void ManualOptionsDisplay();
 void ChangeManualDisplay(int mode);
+void ClickToExit();
+void ExitToMenu();
+
 
 
 

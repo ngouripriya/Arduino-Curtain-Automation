@@ -3,7 +3,10 @@
 
 static int pos = 0;
 static int Max =-5000;
+//most open
 static int Min = -5000;
+//most closed
+
 //random values so it updates
 
 void motor_setup(){
@@ -34,6 +37,7 @@ void setMin(int newMin){
 int getMax(){
   return Max;
 }
+
 
 int getMin(){
   return Min;

@@ -13,7 +13,7 @@
 
 static int scrolling =0;
 //0 = manual override, 1 -> open, 2-> close, 3-> exit
-static int modes = 0;
+//static int modes = 0;
 static int lastStateCLK = LOW;  
 static int counter = 0;    
 static int currentStateCLK;  
@@ -21,7 +21,7 @@ int ManualMode = -1;
 int ManualModeLast = -2;
 
 
-  void modeManual() {
+void modeManual() {
    
   while(scrolling ==0){
     ManualOptionsDisplay();
@@ -29,7 +29,6 @@ int ManualModeLast = -2;
 
 
   while (scrolling == 1) { 
-    printToScreen("scrolling 1");
     if(ManualMode == MANUAL_OVERRIDE){
       ManualOverride(); 
     }
@@ -40,7 +39,8 @@ int ManualModeLast = -2;
       
     }
     if(ManualMode == EXIT){
-     
+      ExitToMenu();
+   
     }
   }
 
@@ -62,6 +62,7 @@ void ManualOptionsDisplay(){
     scrolling = 1;
   }
 }
+
 
 void ChangeManualDisplay(int mode){
   if(mode == MANUAL_OVERRIDE ){
@@ -128,7 +129,21 @@ void ManualOverride(){
   
   
 void fullOpen(){
-  
+
+}
+
+void fullClose(){
+
+}
+
+void ClickToExit(){
+
+
+}
+
+void ExitToMenu(){
+  scrolling = 5;
+
 }
    
   
