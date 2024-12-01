@@ -11,6 +11,6 @@ const int stepsPerRevolution =200;
 void RotaryEncoder_setup();
 bool click();
 int scroll();
-int turn();
+
 
 #endif

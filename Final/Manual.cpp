@@ -17,18 +17,15 @@
   int currentStateCLK;     
 
 
-  
-  Serial.println("Entering Manual Mode...");
-
   while (!click()) { 
     currentStateCLK = digitalRead(CLK);
 
     if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
 
       if (digitalRead(DT) != currentStateCLK) {
-        counter --;
+        counter ++;
 
-        digitalWrite(dirPin, LOW);
+        digitalWrite(dirPin, HIGH);
         for(int x=0; x< 10; x++){
           digitalWrite(stepPin, HIGH);
           delayMicroseconds(1000);
@@ -37,14 +34,15 @@
         }
       } 
       else {
-
-        counter ++;
-        digitalWrite(dirPin, HIGH);
+        digitalWrite(dirPin, LOW);
         for(int x=0; x< 10; x++){
           digitalWrite(stepPin, HIGH);
           delayMicroseconds(1000);
           digitalWrite(stepPin, LOW);
           delayMicroseconds(1000);
+
+        counter ++;
+        
         }
         
         delay(1);
@@ -52,8 +50,6 @@
 
 
       }
-
-		  Serial.print("Direction: ");
 
 		  Serial.print(" | Counter: ");
 		  Serial.println(counter);

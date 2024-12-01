@@ -69,22 +69,4 @@ int scroll(){
   return scrollModes;
 }
 
-int turn(){
-
-  currentStateCLK = digitalRead(CLK);
-
-  if (currentStateCLK != lastStateCLK){
-
-    if (digitalRead(DT) != currentStateCLK) {
-        counter ++;
-    } 
-    else {
-        counter --; 
-    }
-    delay(10);
-  }
-  lastStateCLK = currentStateCLK;
-
-    return counter;
-}
 
