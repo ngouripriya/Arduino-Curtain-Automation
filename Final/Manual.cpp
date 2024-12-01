@@ -22,25 +22,37 @@ int ManualModeLast = -2;
 
 
 void modeManual() {
+  scrolling = 0;
+  while(scrolling != 5){
    
-  while(scrolling ==0){
-    ManualOptionsDisplay();
-  }
+    while(scrolling ==0){
+      ManualOptionsDisplay();
+    }
 
 
-  while (scrolling == 1) { 
-    if(ManualMode == MANUAL_OVERRIDE){
-      ManualOverride(); 
-    }
-    if(ManualMode == OPEN){
-      
-    }
-    if(ManualMode == CLOSE){
-      
-    }
-    if(ManualMode == EXIT){
-      ExitToMenu();
-   
+    while (scrolling == 1) { 
+      if(ManualMode == MANUAL_OVERRIDE){
+        ManualOverride(); 
+        if(click()){
+          ClickToExit();
+        }
+      }
+      if(ManualMode == OPEN){
+        fullOpen();
+        if(click()){
+          ClickToExit();
+        }        
+      }
+      if(ManualMode == CLOSE){
+        fullClose();
+        if(click()){
+          ClickToExit();
+        }        
+      }
+      if(ManualMode == EXIT){
+        scrolling = 5;
+      }
+
     }
   }
 
@@ -60,6 +72,7 @@ void ManualOptionsDisplay(){
 
   if(click()){
     scrolling = 1;
+    
   }
 }
 
@@ -77,7 +90,7 @@ void ChangeManualDisplay(int mode){
   }
 
   else if(mode == EXIT){
-    printToScreen("Exit");    
+    printToScreen("Exit");   
   }
 
 }
@@ -85,6 +98,7 @@ void ChangeManualDisplay(int mode){
 
 void ManualOverride(){
   currentStateCLK = digitalRead(CLK);
+  
 
     if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
 
@@ -111,10 +125,8 @@ void ManualOverride(){
         delay(1);
 
       }
-
 //		  Serial.print(" | Counter: ");
 //		  Serial.println(counter);
-
 
 	  }
 
@@ -137,13 +149,11 @@ void fullClose(){
 }
 
 void ClickToExit(){
-
-
+  scrolling = 0;
 }
 
 void ExitToMenu(){
   scrolling = 5;
-
 }
    
   
