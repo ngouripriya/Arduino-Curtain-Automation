@@ -10,8 +10,7 @@ int AutoModeLast = -2;
 
 
 void modeAutomatic(){
-  println("Click to"
-  println("Exit");
+  printToScreen("Exit");
 
   while (!click()) {
     currentIndoor = indoor();
