@@ -22,6 +22,15 @@ void updatePos(int update){
 
 }
 
+void setMax(int newMax){
+  Max =  newMax;
+}
+
+void setMin(int newMin){
+  Min =  newMin;
+}
+
+
 int getMax(){
   return Max;
 }
