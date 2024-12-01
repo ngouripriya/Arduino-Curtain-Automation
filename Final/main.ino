@@ -1,5 +1,6 @@
 #include "UI.h"
 #include "RotaryEncoder.h"
+#include "Motor.h"
 
 
 int scrolling = 0;
@@ -10,10 +11,10 @@ int mode = -10;
 void setup(){
   //OLED
   UI_setup();
-
   //Rotary Encoder
-  RotaryEncoder_setup();
+  RotaryEncoder_setup();  
 
+  motor_setup();
 
   Serial.begin(9600);
 
@@ -21,6 +22,8 @@ void setup(){
 
 
 void loop(){
+
+  
   if(scrolling == 0){
     if(click()){
       scrolling =1;
@@ -28,7 +31,7 @@ void loop(){
   }
 
   if(scrolling ==1){   
-    mode = turn();
+    mode = scroll();
     
     if(mode != lastmode){
       updateScreen(mode);
@@ -42,5 +45,7 @@ void loop(){
       switchToMode(mode);
     }
   }
-
+  
 }
+
+

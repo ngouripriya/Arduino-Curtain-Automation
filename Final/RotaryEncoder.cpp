@@ -1,12 +1,14 @@
 #include "RotaryEncoder.h"
 #include <string.h>
 
+int scrollModes =0;
 int counter = 0;
 int currentStateCLK;
 int lastStateCLK;
 String currentDir ="";
 unsigned long lastButtonPress = 0;
-int state =0;
+
+
 
 void RotaryEncoder_setup(){
   pinMode(CLK,INPUT);
@@ -33,36 +35,37 @@ return clicked;
 }
 
 
-int turn(){
+int scroll(){
 	// Read the current state of CLK
 	currentStateCLK = digitalRead(CLK);
 
 	if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
 
 		if (digitalRead(DT) != currentStateCLK) {
-      if (counter != 3){
-			  counter ++;
+      if (scrollModes != 3){
+			  scrollModes ++;
 			  currentDir ="CCW";
       }
 		} 
     else {
-      if (counter != 0){
-			  counter --;
+      if (scrollModes != 0){
+			  scrollModes --;
 			  currentDir ="CW";
       }
 		}
     delay(10);
   }
   lastStateCLK = currentStateCLK;
-   
+
   //added this cuz its being weird
-  if (counter < 0){
-    counter =0;
+  if (scrollModes < 0){
+    scrollModes =0;
   }
-  if (counter > 3){
-    counter =3;
+  if (scrollModes > 3){
+    scrollModes =3;
   }
 
 
-  return counter;
+  return scrollModes;
 }
+

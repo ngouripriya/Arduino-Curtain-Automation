@@ -11,7 +11,10 @@
 
 void RotaryEncoder_setup();
 bool click();
-int turn();
+int scroll();
+
+
+
 
 
 #endif
