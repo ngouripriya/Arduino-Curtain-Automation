@@ -7,6 +7,10 @@
 
 void motor_setup();
 void manualTurn(int turn);
+int getPos();
+void updatePos(int update);
+int getMax();
+int getMin();
 
 
 #endif
