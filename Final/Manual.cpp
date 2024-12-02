@@ -13,7 +13,7 @@
 
 static int scrolling =0;
 //0 = manual override, 1 -> open, 2-> close, 3-> exit
-//static int modes = 0;
+static int modes = 0;
 static int lastStateCLK = LOW;  
 static int counter = 0;    
 static int currentStateCLK;  
@@ -21,38 +21,26 @@ int ManualMode = -1;
 int ManualModeLast = -2;
 
 
-void modeManual() {
-  scrolling = 0;
-  while(scrolling != 5){
+  void modeManual() {
    
-    while(scrolling ==0){
-      ManualOptionsDisplay();
+  while(scrolling ==0){
+    ManualOptionsDisplay();
+  }
+
+
+  while (scrolling == 1) { 
+    printToScreen("scrolling 1");
+    if(ManualMode == MANUAL_OVERRIDE){
+      ManualOverride(); 
     }
-
-
-    while (scrolling == 1) { 
-      if(ManualMode == MANUAL_OVERRIDE){
-        ManualOverride(); 
-        if(click()){
-          ClickToExit();
-        }
-      }
-      if(ManualMode == OPEN){
-        fullOpen();
-        if(click()){
-          ClickToExit();
-        }        
-      }
-      if(ManualMode == CLOSE){
-        fullClose();
-        if(click()){
-          ClickToExit();
-        }        
-      }
-      if(ManualMode == EXIT){
-        scrolling = 5;
-      }
-
+    if(ManualMode == OPEN){
+      
+    }
+    if(ManualMode == CLOSE){
+      
+    }
+    if(ManualMode == EXIT){
+     
     }
   }
 
@@ -72,10 +60,8 @@ void ManualOptionsDisplay(){
 
   if(click()){
     scrolling = 1;
-    
   }
 }
-
 
 void ChangeManualDisplay(int mode){
   if(mode == MANUAL_OVERRIDE ){
@@ -90,7 +76,7 @@ void ChangeManualDisplay(int mode){
   }
 
   else if(mode == EXIT){
-    printToScreen("Exit");   
+    printToScreen("Exit");    
   }
 
 }
@@ -98,7 +84,6 @@ void ChangeManualDisplay(int mode){
 
 void ManualOverride(){
   currentStateCLK = digitalRead(CLK);
-  
 
     if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
 
@@ -125,8 +110,10 @@ void ManualOverride(){
         delay(1);
 
       }
+
 //		  Serial.print(" | Counter: ");
 //		  Serial.println(counter);
+
 
 	  }
 
@@ -141,19 +128,7 @@ void ManualOverride(){
   
   
 void fullOpen(){
-
-}
-
-void fullClose(){
-
-}
-
-void ClickToExit(){
-  scrolling = 0;
-}
-
-void ExitToMenu(){
-  scrolling = 5;
+  
 }
    
   

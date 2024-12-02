@@ -9,9 +9,9 @@ void motor_setup();
 void manualTurn(int turn);
 int getPos();
 void updatePos(int update);
-void setMax();
-void setMin();
-int getMax();
+void setMax(int newMax);
+void setMin(int newMin);
+int getMax(); 
 int getMin();
 
 

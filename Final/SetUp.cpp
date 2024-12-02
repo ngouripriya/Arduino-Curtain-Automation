@@ -2,6 +2,7 @@
 #include "UI.h"
 #include "Motor.h"
 #include "LightSensor.h"
+#include "RotaryEncoder.h"
 
 static int scrolling =0;
 //0 = manual override, 1 -> open, 2-> close, 3-> exit

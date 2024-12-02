@@ -15,21 +15,21 @@ void modeAutomatic(){
   printToScreen("Exit");
 
   while (!click()) {
-    currentIndoor = indoor();
-    currentOutdoor = outdoor();
-    preference = preference();
+    int currentIndoor = indoor();
+    int currentOutdoor = outdoor();
+    int pref = preference();
 
     //too dark inside and brighter outside
-    if (currentIndoor < preference - 20 && currentIndoor < currentOutdoor && getPos() > getMin()) {
+    if (currentIndoor < pref - 20 && currentIndoor < currentOutdoor && getPos() > getMin()) {
       autoOpen();
     } 
-    else if (currentIndoor > preference + 20 && currentIndoor < currentOutdoor) {
+    else if (currentIndoor > pref + 20 && currentIndoor < currentOutdoor) {
       autoClose();
     } 
-    else if (currentIndoor < preference - 20 && currentIndoor > currentOutdoor && getPos() > getMin()) {
+    else if (currentIndoor < pref - 20 && currentIndoor > currentOutdoor && getPos() > getMin()) {
       autoClose();
     } 
-    else if (currentIndoor > preference + 20 && currentIndoor > currentOutdoor) {
+    else if (currentIndoor > pref + 20 && currentIndoor > currentOutdoor) {
       autoOpen();
     }
   }

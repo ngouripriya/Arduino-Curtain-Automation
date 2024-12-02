@@ -39,14 +39,12 @@ void loop(){
       lastmode = mode;
     }
     
-    if(click()){      
+    if(click()){
+      scrolling = 2;
       Serial.println("Click");
       switchToMode(mode);
-      scrolling = 0;
     }
   }
-  
-  
   
 }
 
