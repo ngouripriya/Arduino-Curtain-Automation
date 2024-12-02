@@ -5,7 +5,7 @@ This program was created to control the opening and closing of blinds using an A
 ## Setup:
 ### Hardware
 Connect the following devices to an Arduino Uno as described:
-Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor light detection) and A5 (indoor light detection) and the ____V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ.
+Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor light detection) and A5 (indoor light detection) and the ____V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
 
 I2C OLED Display: 
 
