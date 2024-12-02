@@ -42,7 +42,7 @@ int scroll(){
 	if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
 
 		if (digitalRead(DT) != currentStateCLK) {
-      if (scrollModes != 2){
+      if (scrollModes != 3){
 			  scrollModes ++;
 //			  currentDir ="CCW";
       }
