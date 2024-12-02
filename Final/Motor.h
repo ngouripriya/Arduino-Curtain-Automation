@@ -1,8 +1,8 @@
 #ifndef MOTOR_H
 #define MOTOR_H
-#define dirPin 8
-#define stepPin  9
-#define stepsPerRevolution 200
+const int dirPin = 8;
+const int stepPin = 9;
+const int stepsPerRevolution = 200;
 #include <Arduino.h>
 
 void motor_setup();
@@ -11,7 +11,7 @@ int getPos();
 void updatePos(int update);
 void setMax(int newMax);
 void setMin(int newMin);
-int getMax(); 
+int getMax();
 int getMin();
 
 

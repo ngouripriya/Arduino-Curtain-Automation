@@ -1,7 +1,7 @@
 #ifndef LIGHTSENSOR_H
 #define LIGHTSENSOR_H
-#define indoorPin A5
-#define outdoorPin A4
+#define indoorPin A3
+#define outdoorPin A2
 #include <Arduino.h>
 
 int indoor();

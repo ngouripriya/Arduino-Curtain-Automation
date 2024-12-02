@@ -33,6 +33,7 @@ void modeAutomatic(){
       autoOpen();
     }
   }
+
 }
 
 void autoOpen() {

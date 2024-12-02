@@ -2,7 +2,16 @@
 #include "UI.h"
 #include <Arduino.h>
 
+//static int currentIndoor;
+//static int currentOutdoor;
+//static int count = 0;
 static int pref = -1;
+
+void lightSensor_setup(){
+  pinMode(indoor, INPUT);
+  pinMode(outdoor, INPUT);
+
+}
 
 int indoor() {
   return analogRead(indoorPin);

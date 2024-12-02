@@ -43,7 +43,8 @@ void updateScreen(int mode){
 }
 
 void switchToMode(int mode){
-    if (mode == SETUP){
+ // int value = 0;
+  if (mode == SETUP){
     modeSetup();
   }
   else if (mode == AUTOMATIC){
@@ -55,7 +56,7 @@ void switchToMode(int mode){
   else if (mode == CLOCK){
     modeClock();
   }
-
+  //return value;
 }
 
 void printToScreen(String word){

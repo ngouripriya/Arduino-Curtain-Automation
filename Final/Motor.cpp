@@ -2,8 +2,11 @@
 #include "UI.h"
 
 static int pos = 0;
-static int Max =-5000; 
-static int Min = -5000; 
+static int Max = 200;
+//most open
+static int Min = 0;
+//most closed
+
 //random values so it updates
 
 void motor_setup(){
@@ -19,15 +22,21 @@ int getPos(){
 
 void updatePos(int update){
   pos += update;
+  Serial.print("Pos = ");
+  Serial.println(pos);
 
 }
 
 void setMax(int newMax){
   Max =  newMax;
+  Serial.print("Max = ");
+  Serial.println(newMax);
 }
 
 void setMin(int newMin){
   Min =  newMin;
+  Serial.print("Min = ");
+  Serial.println(newMin);
 }
 
 
@@ -35,6 +44,12 @@ int getMax(){
   return Max;
 }
 
+
 int getMin(){
   return Min;
 }
+
+
+
+
+

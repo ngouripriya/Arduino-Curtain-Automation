@@ -4,132 +4,154 @@
 #include "LightSensor.h"
 #include "RotaryEncoder.h"
 
-static int scrolling =0;
-//0 = manual override, 1 -> open, 2-> close, 3-> exit
-static int modes = 0;
+
+int modes = 0;
+//0->maxSetup
 static int lastStateCLK = LOW;  
 static int counter = 0;    
 static int currentStateCLK;  
-int ManualMode = -1;
-int ManualModeLast = -2;
+
 
 void modeSetup(){
+  modes =0;
   printToScreen("Set max open");
+  delay(1000);
+  while(modes ==0){
   maxSetup();
 
+  }
+
   printToScreen("Set closed");
-  minSetup();
+  while(modes == 1){
+    minSetup();
+  }
 
   printToScreen("Set preference");
-  prefSetup();
+  while(modes =2 ){
+    prefSetup();
+    if(click()){
+      break;
+    }
+  }
 
 }
 
 void maxSetup() {
-  //let them open and close like in manual and setMax position when click occurs
-  currentStateCLK = digitalRead(CLK);
-  int pos = 0;
+    currentStateCLK = digitalRead(CLK);
+    int current = getPos();
   
-  while (!click()) {
+
     if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
+
+
+
       if (digitalRead(DT) != currentStateCLK) {
+//        counter ++;
+        //this is opening
+
+        //only turns if it doesn't go past max position
         digitalWrite(dirPin, HIGH);
         for(int x=0; x< 10; x++){
           digitalWrite(stepPin, HIGH);
           delayMicroseconds(1000);
           digitalWrite(stepPin, LOW);
           delayMicroseconds(1000);
-          pos++;
-          updatePos(1);
         }
-      } else {
+        current = current+10;
+        updatePos(10);
+        delay(10);
+
+      } 
+      else {
         digitalWrite(dirPin, LOW);
         for(int x=0; x< 10; x++){
           digitalWrite(stepPin, HIGH);
           delayMicroseconds(1000);
           digitalWrite(stepPin, LOW);
           delayMicroseconds(1000);
-          pos--;   
-          updatePos(-1);   
-        }        
-      }
-	  }
-	  lastStateCLK = currentStateCLK;
-	  delay(1);
-  }
+        }     
+        current-=10;
+        updatePos(-10);
+        delay(10);
+        delay(10);
 
-  setMax(pos);
+      }
+
+	  }
+
+  if(click()){
+    setMax(current);
+    modes = 1;
+  }
+	lastStateCLK = currentStateCLK;
+
+	delay(1);
+
+
 }
 
+
+
+
 void minSetup() {
-  //same as maxSetup but setMin when click occurs
-    //let them open and close like in manual and setMax position when click occurs
-  currentStateCLK = digitalRead(CLK);
-  int pos = 0;
+      currentStateCLK = digitalRead(CLK);
+    int current = getPos();
   
-  while (!click()) {
+
     if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
+
+
+
       if (digitalRead(DT) != currentStateCLK) {
-        digitalWrite(dirPin, HIGH);
-        for(int x=0; x< 10; x++){
-          digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
-          digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
-          pos++;
-          updatePos(1);
+//        counter ++;
+        //this is opening
+
+        //only turns if it doesn't go past max position
+        int max = getMax();
+        if(current+10 <= max){
+          digitalWrite(dirPin, HIGH);
+          for(int x=0; x< 10; x++){
+            digitalWrite(stepPin, HIGH);
+            delayMicroseconds(1000);
+            digitalWrite(stepPin, LOW);
+            delayMicroseconds(1000);
+          }
+          current = current+10;
+          updatePos(10);
+          delay(10);
         }
-      } else {
+
+      } 
+      else {
         digitalWrite(dirPin, LOW);
         for(int x=0; x< 10; x++){
           digitalWrite(stepPin, HIGH);
           delayMicroseconds(1000);
           digitalWrite(stepPin, LOW);
           delayMicroseconds(1000);
-          pos--;  
-          updatePos(-1);    
-        }        
-      }
-	  }
-	  lastStateCLK = currentStateCLK;
-	  delay(1);
-  }
+        }     
+        current-=10;
+        updatePos(-10);
+        delay(10);
+        delay(10);
 
-  setMin(pos);
+      }
+
+	  }
+
+  if(click()){
+    setMin(current);
+    modes = 2;
+  }
+	lastStateCLK = currentStateCLK;
+
+	delay(1);
+
+
+
 }
 
 void prefSetup() {
-  // same as other setups just setPreference when click occurs
-    //let them open and close like in manual and setMax position when click occurs
-  currentStateCLK = digitalRead(CLK);
-  int pos = 0;
-  
-  while (!click()) {
-    if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
-      if (digitalRead(DT) != currentStateCLK) {
-        digitalWrite(dirPin, HIGH);
-        for(int x=0; x< 10; x++){
-          digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
-          digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
-          pos++;
-          updatePos(1);
-        }
-      } else {
-        digitalWrite(dirPin, LOW);
-        for(int x=0; x< 10; x++){
-          digitalWrite(stepPin, HIGH);
-          delayMicroseconds(1000);
-          digitalWrite(stepPin, LOW);
-          delayMicroseconds(1000);
-          pos--; 
-          updatePos(-1);     
-        }        
-      }
-	  }
-	  lastStateCLK = currentStateCLK;
-	  delay(1);
-  }
   setPreference();
+  
 }
