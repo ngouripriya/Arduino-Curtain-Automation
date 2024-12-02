@@ -1,7 +1,7 @@
 #include "UI.h"
 #include "Manual.h"
-//#include "SetUp.h"
-//#include "Automatic.h"
+#include "SetUp.h"
+#include "Automatic.h"
 //#include "Clock.h"
 Adafruit_SSD1306 display(OLED_WIDTH, OLED_HEIGHT);
 
@@ -34,9 +34,6 @@ void updateScreen(int mode){
   else if(mode == MANUAL){
     display.println("Manual");   
   }
-  else if(mode == CLOCK){
-    display.println("Clock");    
-  }
   display.display();
 
 
@@ -53,9 +50,9 @@ void switchToMode(int mode){
   else if (mode == MANUAL){
     modeManual();
   }
-  else if (mode == CLOCK){
-    modeClock();
-  }
+  //else if (mode == CLOCK){
+  //  modeClock();
+  //}
   //return value;
 }
 

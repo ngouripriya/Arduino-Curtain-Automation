@@ -13,7 +13,7 @@
 const int SETUP = 0;
 const int AUTOMATIC = 1;
 const int MANUAL = 2;
-const int CLOCK = 3;
+//const int CLOCK = 3;
 
 
 void UI_setup();

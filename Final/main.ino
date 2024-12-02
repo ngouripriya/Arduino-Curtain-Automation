@@ -35,6 +35,9 @@ void loop(){
 
   if(scrolling ==1){   
     mode = scroll();
+    if (mode == 3){
+      mode = 2;
+    }
     
     if(mode != lastmode){
       updateScreen(mode);

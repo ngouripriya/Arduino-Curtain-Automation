@@ -14,12 +14,18 @@ int AutoModeLast = -2;
 void modeAutomatic(){
   printToScreen("Exit");
   delay(30);
+  scrolling =0;
 
-  while (!click()) {
+  while (scrolling ==0) {
     int currentIndoor = indoor();
     int currentOutdoor = outdoor();
     int pref = preference();
-
+    Serial.print("current = ");
+    Serial.println(currentIndoor);
+    Serial.print("Outdoor = ");
+    Serial.println(currentOutdoor);
+    Serial.print("pref = ");
+    Serial.println(pref);
     //too dark inside and brighter outside
     if (currentIndoor < pref - 20 && currentIndoor < currentOutdoor && getPos() > getMin()) {
       Serial.println("In 1");
@@ -37,6 +43,12 @@ void modeAutomatic(){
       Serial.println("In 3");
       autoOpen();
     }
+    if(click()){
+      scrolling = 5;
+      //invalid, should exit
+    }
+
+    delay(5000);
   }
 
 }

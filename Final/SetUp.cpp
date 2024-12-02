@@ -27,11 +27,8 @@ void modeSetup(){
   }
 
   printToScreen("Set preference");
-  while(modes =2 ){
+  while(modes == 2 ){
     prefSetup();
-    if(click()){
-      break;
-    }
   }
 
 }
@@ -152,6 +149,68 @@ void minSetup() {
 }
 
 void prefSetup() {
-  setPreference();
+    currentStateCLK = digitalRead(CLK);
   
+
+    if (currentStateCLK != lastStateCLK  && currentStateCLK == 1){
+      int max = getMax();
+      int current = getPos();
+      int min = getMin();
+      /*
+      Serial.print("Max = ");
+      Serial.println(max);
+      Serial.print("Min = ");
+      Serial.println(min);
+      Serial.print("Current = ");
+      Serial.println(current);
+      */
+      if (digitalRead(DT) != currentStateCLK) {
+//        counter ++;
+        //this is opening
+
+        //only turns if it doesn't go past max position
+        if(current+10 <= max){
+          digitalWrite(dirPin, HIGH);
+          for(int x=0; x< 10; x++){
+            digitalWrite(stepPin, HIGH);
+            delayMicroseconds(1000);
+            digitalWrite(stepPin, LOW);
+            delayMicroseconds(1000);
+          }
+          current = current+10;
+          updatePos(10);
+          delay(10);
+        }
+      } 
+      else {
+        if(current - 10 >= min){
+          digitalWrite(dirPin, LOW);
+          for(int x=0; x< 10; x++){
+            digitalWrite(stepPin, HIGH);
+            delayMicroseconds(1000);
+            digitalWrite(stepPin, LOW);
+            delayMicroseconds(1000);
+
+          }     
+          current-=10;
+          updatePos(-10);
+          delay(10);
+        }   
+        delay(10);
+
+      }
+
+	  }
+ //   setPreference();
+
+  if(click()){
+    setPreference();
+    modes = 5;
+    //exit
+  }
+	lastStateCLK = currentStateCLK;
+
+	delay(1);
+
 }
+  
