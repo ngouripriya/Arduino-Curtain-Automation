@@ -1,5 +1,6 @@
 #ifndef MANUAL_H
 #define MANUAL_H
+#include <Arduino.h>
 
 const int MANUAL_OVERRIDE = 0;
 const int OPEN = 1;

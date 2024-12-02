@@ -2,8 +2,8 @@
 #include "UI.h"
 #include <Arduino.h>
 
-//static int currentIndoor;
-//static int currentOutdoor;
+static int currentIndoor;
+static int currentOutdoor;
 //static int count = 0;
 static int pref = -1;
 
@@ -30,4 +30,7 @@ int preference() {
 }
 void setPreference() {
   pref = analogRead(indoorPin);
+  Serial.print("pref = ");
+  Serial.println(pref);
+
 }

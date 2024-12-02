@@ -13,6 +13,7 @@ int AutoModeLast = -2;
 
 void modeAutomatic(){
   printToScreen("Exit");
+  delay(30);
 
   while (!click()) {
     int currentIndoor = indoor();
@@ -21,15 +22,19 @@ void modeAutomatic(){
 
     //too dark inside and brighter outside
     if (currentIndoor < pref - 20 && currentIndoor < currentOutdoor && getPos() > getMin()) {
+      Serial.println("In 1");
       autoOpen();
     } 
     else if (currentIndoor > pref + 20 && currentIndoor < currentOutdoor) {
+      Serial.println("In 2");
       autoClose();
     } 
     else if (currentIndoor < pref - 20 && currentIndoor > currentOutdoor && getPos() > getMin()) {
+      Serial.println("In 3");
       autoClose();
     } 
     else if (currentIndoor > pref + 20 && currentIndoor > currentOutdoor) {
+      Serial.println("In 3");
       autoOpen();
     }
   }

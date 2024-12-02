@@ -1,6 +1,7 @@
 #include "UI.h"
 #include "RotaryEncoder.h"
 #include "Motor.h"
+#include "LightSensor.h"
 
 
 int scrolling = 0;
@@ -15,6 +16,8 @@ void setup(){
   RotaryEncoder_setup();  
 
   motor_setup();
+
+  lightSensor_setup();
 
   Serial.begin(9600);
 

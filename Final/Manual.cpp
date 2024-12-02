@@ -29,7 +29,6 @@ void modeManual() {
       ManualOptionsDisplay();
     }
 
-
     while (scrolling == 1) { 
       if(ManualMode == MANUAL_OVERRIDE){
         ManualOverride(); 
@@ -58,13 +57,11 @@ void modeManual() {
 }
 
 
-
-
 void ManualOptionsDisplay(){
   ManualMode = scroll();
   if(ManualMode != ManualModeLast){
     ChangeManualDisplay(ManualMode);
-//    Serial.println(ManualMode);
+
     ManualModeLast = ManualMode;
   }
 
@@ -73,7 +70,6 @@ void ManualOptionsDisplay(){
     
   }
 }
-
 
 void ChangeManualDisplay(int mode){
   if(mode == MANUAL_OVERRIDE ){
@@ -127,6 +123,7 @@ void ManualOverride(){
           delay(10);
         }
       } 
+
       else {
         if(current - 10 >= min){
           digitalWrite(dirPin, LOW);
@@ -135,6 +132,7 @@ void ManualOverride(){
             delayMicroseconds(1000);
             digitalWrite(stepPin, LOW);
             delayMicroseconds(1000);
+
  //         counter --;  
 
           }     
