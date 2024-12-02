@@ -1,7 +1,6 @@
 # Arduino-Curtain-Automation
 ## Overview:
-
-## Installation:
+This program was created to control the opening and closing of blinds using an Arduino Uno, a Nema 17 stepper motor, two photoresistors, a rotary encoder, a A4988 motor driver, and an I2C display. The blinds can be opened automatically, according to light level preference, and manually, using a rotary encoder.
 
 ## Setup:
 ### Hardware
