@@ -5,9 +5,9 @@ This program was created to control the opening and closing of blinds using an A
 ## Setup:
 ### Hardware
 Connect the following devices to an Arduino Uno as described:
-Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor light detection) and A5 (indoor light detection) and the 3.3 V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
+Photoresistors: Connect one side of the photo resistors to pins A2 (outdoor light detection) and A1 (indoor light detection) and the 3.3 V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
 
-I2C OLED Display: 
+I2C OLED Display: Connect the GND and VCC pins to the GND and 3.3 V pins of the Arduino respectively. Connect the SCL pin to pin A5 of the Arduino. Connect the SDA pin to pin A4 of the Arduino.
 
 A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5 V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
 
