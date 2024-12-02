@@ -5,15 +5,15 @@ This program was created to control the opening and closing of blinds using an A
 ## Setup:
 ### Hardware
 Connect the following devices to an Arduino Uno as described:
-Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor light detection) and A5 (indoor light detection) and the ____V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
+Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor light detection) and A5 (indoor light detection) and the 3.3 V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
 
 I2C OLED Display: 
 
-A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5V source of the Arduino and VDD to the ___V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
+A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
 
 Nema 17 Stepper Motor: The motor should be connected to the 1A, 1B, 2A, and 2B pins according to the datasheets. 
 
-Rotary Encoder: Connect the CLK pin to D2 of the Arduino. Connect the DT pin to D3 of the Arduino. The GND pin can be connected to the Arduino ground, and the + pin can be connected to the ____V pin of the Arduino.
+Rotary Encoder: Connect the CLK pin to D2 of the Arduino. Connect the DT pin to D3 of the Arduino. The GND pin can be connected to the Arduino ground, and the + pin can be connected to the 3.3 V pin of the Arduino.
 
 Connect the motor to blinds.
 ### Software
