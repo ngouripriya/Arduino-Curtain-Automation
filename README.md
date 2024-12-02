@@ -9,7 +9,7 @@ Photoresistors: Connect one side of the photo resistors to pins A4 (outdoor ligh
 
 I2C OLED Display: 
 
-A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
+A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5 V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
 
 Nema 17 Stepper Motor: The motor should be connected to the 1A, 1B, 2A, and 2B pins according to the datasheets. 
 
