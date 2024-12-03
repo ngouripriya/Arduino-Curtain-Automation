@@ -1,19 +1,19 @@
 # Arduino Curtain Automation
 ## Overview:
-This program was created to control the opening and closing of blinds using an Arduino Uno, a Nema 17 stepper motor, two photoresistors, a rotary encoder, a A4988 motor driver, and an I2C display. The blinds can be opened automatically, according to light level preference, and manually, using a rotary encoder.
+This program was created to control the opening and closing of blinds using an Arduino Uno, a Nema 17 stepper motor, two photoresistors, two 5.6kΩ resistors, a rotary encoder, a A4988 motor driver, and an I2C display. The blinds can be opened automatically, according to an adjustable light level preference, and manually, using a rotary encoder.
 
 ## Setup:
 ### Hardware
 Connect the following devices to an Arduino Uno as described:
-Photoresistors: Connect one side of the photo resistors to pins A2 (outdoor light detection) and A1 (indoor light detection) and the 3.3 V pin of the Arduino. Connect the other sides of the phoresistors to ground using a 5.6 kΩ resistor.
+Photoresistors: Connect one side of the photo resistors to pins A2 (outdoor light detection) and A1 (indoor light detection) and to ground using a 5.6 kΩ resistor. Connect the other sides of the phoresistors to the 3.3V power supply of the Arduino.
 
 I2C OLED Display: Connect the GND and VCC pins to the GND and 3.3 V pins of the Arduino respectively. Connect the SCL pin to pin A5 of the Arduino. Connect the SDA pin to pin A4 of the Arduino.
 
-A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the DIR and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5 V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
+A4988: Set the current limit of the A4988 according to the datasheet specifications. Connect the SLP and RST pins. Connect the Direction and Step pins to pins D8 and D9 of the Arduino respectively. Connect VMOT to the 5 V source of the Arduino and VDD to the 3.3 V source of the Arduino. The GND pins should be connected to the GND pins of the Arduino.
 
 Nema 17 Stepper Motor: The motor should be connected to the 1A, 1B, 2A, and 2B pins according to the datasheets. 
 
-Rotary Encoder: Connect the CLK pin to D2 of the Arduino. Connect the DT pin to D3 of the Arduino. The GND pin can be connected to the Arduino ground, and the + pin can be connected to the 3.3 V pin of the Arduino.
+Rotary Encoder: Connect the CLK pin to D2 of the Arduino. Connect the DT pin to D3 of the Arduino. Connect the SW pin to D4 of the Arduino. The GND pin can be connected to the Arduino ground, and the + pin can be connected to the 3.3 V pin of the Arduino.
 
 Connect the motor to blinds.
 ### Software
