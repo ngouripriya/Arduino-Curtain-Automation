@@ -57,7 +57,7 @@ void modeAutomatic(){
       //invalid, should exit
     }
 
-    delay(50);
+    delay(100);
   }
 
 }
@@ -80,9 +80,13 @@ void autoOpen() {
         updatePos(10);
         delay(10);
       }
+      updatePast(1);
 
   }
-  updatePast(1);
+  //else{
+  //  delay(5000);
+  //}
+  //updatePast(1);
 }
 
 void autoClose() {
@@ -103,8 +107,12 @@ void autoClose() {
       updatePos(-10);
       delay(10);
     }  
-  }    
-  updatePast(-1);
+    updatePast(-1);
+  }  
+  //else{
+  //  delay(5000);
+  //}  
+  //updatePast(-1);
 }
 
 bool repeating(int i) {

@@ -48,7 +48,8 @@ void loop(){
     if(click()){      
       Serial.println("Click");
       switchToMode(mode);
-      scrolling = 0;
+      printToScreen("Main Menu");
+      scrolling = 1;
     }
   }
   
