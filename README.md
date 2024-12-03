@@ -30,5 +30,5 @@ The system should now be setup, with options to setup again, control the system 
  - Automatic: The blinds will adjust automatically to meet the preference set in the Setup. The blinds will not open/close past the maximum and minimum amounts set in Setup. Click the rotary encoder to exit this mode
  - Manual: Different manual options can be selected by scrolling and clicking with the rotary encoder. Clicking Open or Close will fully open/close the blinds. Clicking Override allows the user to open/close the blinds by turning the rotary encoder; to exit, click the rotary encoder. Clicking Exit will return to the main screen.  
 
-The following image is a diagram of every component and how it connects to the Arduino. Note: Power and ground connections are not shown. VMOT should be connected to the 5V source on the Arduino, and all other power connections should be to the 3.3V on the Arduino.
+*The following image is a diagram of every component and how it connects to the Arduino. Note: Power and ground connections are not shown. VMOT should be connected to the 5V source on the Arduino, and all other power connections should be to the 3.3V on the Arduino.*
 ![IMG_23329144C2F2-1](https://github.com/user-attachments/assets/3f3b5c81-5989-46cd-a572-96eb983d62af)
