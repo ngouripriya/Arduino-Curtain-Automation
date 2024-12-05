@@ -93,7 +93,7 @@ void autoClose() {
   int min = getMin();
   int current = getPos();
   if (!repeating(1)) {
-    digitalWrite(dirPin, LOW);  
+    //digitalWrite(dirPin, LOW);  
     if(current - 10 >= min){
       digitalWrite(dirPin, LOW);
       for(int x=0; x< 10; x++){
